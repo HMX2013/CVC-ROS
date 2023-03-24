@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="cvc_ros" pkg="cvc_ros" type="cvc_ros_node" output="screen">
+    <param name="non_ground_cloud"                value="/semi_kitti/non_ground_pc"/>
+    <param name="output_frame"                     value="map"/>
+  </node>
+
+  <!-- Dynamic Reconfigure GUI -->
+  <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen" />
+
+  <!-- Rviz -->
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find cvc_ros)/rviz/cvc_rviz.rviz" output="log" respawn="true" />
+
+</launch> 
